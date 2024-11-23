@@ -33,6 +33,7 @@ if(isset($_SESSION["tama"])){
     $messSuc = $_SESSION["tama"];
     unset($_SESSION["tama"]);
 }
+   
 ?>
 <?php
 require_once(ROOT_DIR."includes/navbar.php");
@@ -53,7 +54,7 @@ require_once(ROOT_DIR."includes/navbar.php");
 <body>
     <!-- Navbar with Dropdown for User Account (Admin) -->
     
-    <?php require_once(_DIR_."/../../components/page-guard.php"); ?>
+    <?php require_once(__DIR__."/../../components/page-guard.php"); ?>
 
     <!-- Product Maintenance Form -->
     <div class="container my-5">

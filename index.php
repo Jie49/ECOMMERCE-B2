@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+
 include(ROOT_DIR."app/product/get_products.php");
 require_once("includes/header.php");
 ?>
@@ -58,8 +59,6 @@ require_once("includes/header.php");
                     include(ROOT_DIR.'views/components/product-cart.php');
                 }
             ?>
-            
-            </div>
         </div>
     </div>
     

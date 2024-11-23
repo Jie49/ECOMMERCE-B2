@@ -1,7 +1,38 @@
-<?php 
-    session_start();
-    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
-    require_once("includes/header.php");
+<?php
+session_start();
+require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+
+include(ROOT_DIR.'app/config/DatabaseConnect.php');
+    $db = new DatabaseConnect();
+    $conn = $db->connectDB();
+
+    $product = [];
+    $id = @$_GET['id'];
+
+
+
+    try {
+        $sql  = "SELECT * FROM carts WHERE carts.user_id = $userId"; //select statement here
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $carts = $stmt->fetchAll();   
+        
+
+    } catch (PDOException $e){
+       echo "Connection Failed: " . $e->getMessage();
+       $db = null;
+    }
+
+
+require_once(ROOT_DIR."includes/header.php");
+if(isset($_SESSION["mali"])){
+    $messErr = $_SESSION["mali"];
+    unset($_SESSION["mali"]);
+}
+if(isset($_SESSION["tama"])){
+    $messSuc = $_SESSION["tama"];
+    unset($_SESSION["tama"]);
+}
 ?>
 
 <!-- Navbar -->
