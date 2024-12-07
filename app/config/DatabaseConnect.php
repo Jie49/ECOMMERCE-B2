@@ -1,11 +1,18 @@
 <?php 
 class DatabaseConnect {
     private $host = "localhost";
-    private $database = "ecommerceb2";
-    private $dbusername = "root";
-    private $dbpassword = "";
+    private $database = "ecommerce_jmonton";
+    private $dbusername = "jmonton";
+    private $dbpassword = "Jm0n7on_2024";
     private $charset    = 'utf8mb4';
     private $conn = null;
+
+    // private $host = "localhost";
+    // private $database = "ecommerceb2";
+    // private $dbusername = "root";
+    // private $dbpassword = "";
+    //private $charset    = 'utf8mb4';
+    // private $conn = null;
 
     public function connectDB(){
         $dsn = "mysql: host=$this->host;dbname=$this->database;charset=". $this->charset;

@@ -25,13 +25,13 @@ include(ROOT_DIR.'app/config/DatabaseConnect.php');
 
 
 require_once(ROOT_DIR."includes/header.php");
-if(isset($_SESSION["mali"])){
-    $messErr = $_SESSION["mali"];
-    unset($_SESSION["mali"]);
+if(isset($_SESSION["error"])){
+    $messErr = $_SESSION["error"];
+    unset($_SESSION["error"]);
 }
-if(isset($_SESSION["tama"])){
-    $messSuc = $_SESSION["tama"];
-    unset($_SESSION["tama"]);
+if(isset($_SESSION["success"])){
+    $messSuc = $_SESSION["success"];
+    unset($_SESSION["success"]);
 }
    
 ?>

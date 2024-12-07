@@ -23,19 +23,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
     if (trim($productId) == "" || empty($productId)) { 
-        $_SESSION["mali"] = "Product Id field is empty";
+        $_SESSION["error"] = "Product Id field is empty";
         header("location: ".BASE_URL."views/product/product.php");
         exit;
     }
     
     if (trim($quantity) == "" || empty($quantity)) { 
-        $_SESSION["mali"] = "Quantity field is empty";
+        $_SESSION["error"] = "Quantity field is empty";
         header("location: ".BASE_URL."views/product/product.php");
         exit;
     }
     
     if (trim($userId) == "" || empty($userId)) { 
-        $_SESSION["mali"] = "User Id field is empty";
+        $_SESSION["error"] = "User Id field is empty";
         header("location: ".BASE_URL."views/product/product.php");
         exit;
     }
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bindParam('p_product_id', $productId);
 
          if(!$stmt->execute()){
-            $_SESSION["mali"] = "Cannot find the product.";
+            $_SESSION["error"] = "Cannot find the product.";
             header("location: ".BASE_URL."views/product/product.php");
             exit;
 
@@ -69,14 +69,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          $stmt->bindParam(':p_unit_price', $product["unit_price"]);
          $stmt->bindParam(':p_total_price', $totalPrice);
          if(!$stmt->execute()){
-            $_SESSION["mali"] = "Failed to add to cart.";
+            $_SESSION["error"] = "Failed to add to cart.";
             header("location: ".BASE_URL."views/product/product.php");
             exit;
 
          }
          
          
-         $_SESSION["tama"] = "product updated successfully";
+         $_SESSION["succcess"] = "product updated successfully";
          header("location: ".BASE_URL."views/product/product.php?id=".$product["id"]);
         exit;
     

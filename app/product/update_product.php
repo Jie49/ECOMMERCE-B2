@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 
 require_once(__DIR__."/../config/Directories.php"); //to handle folder specific path
-include("..\config\DatabaseConnect.php"); //to access database connection
+include("../config/DatabaseConnect.php"); //to access database connection
 
 $db = new DatabaseConnect(); //make a new database instance
 
@@ -24,43 +24,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
     if (trim($productName) == "" || empty($productName)) { 
-        $_SESSION["mali"] = "Product Name field is empty";
+        $_SESSION["error"] = "Product Name field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($category) == "" || empty($category)) { 
-        $_SESSION["mali"] = "Category field is empty";
+        $_SESSION["error"] = "Category field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($basePrice) == "" || empty($basePrice)) { 
-        $_SESSION["mali"] = "Base Price field is empty";
+        $_SESSION["error"] = "Base Price field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($numberOfStocks) == "" || empty($numberOfStocks)) { 
-        $_SESSION["mali"] = "Number of Stocks field is empty";
+        $_SESSION["error"] = "Number of Stocks field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($unitPrice) == "" || empty($unitPrice)) { 
-        $_SESSION["mali"] = "Unit Price field is empty";
+        $_SESSION["error"] = "Unit Price field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($totalPrice) == "" || empty($totalPrice)) { 
-        $_SESSION["mali"] = "Total Price field is empty";
+        $_SESSION["error"] = "Total Price field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
     
     if (trim($description) == "" || empty($description)) { 
-        $_SESSION["mali"] = "Description field is empty";
+        $_SESSION["error"] = "Description field is empty";
         header("location: ".BASE_URL."views/admin/products/edit.php");
         exit;
     }
@@ -96,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          ':p_id'                  => $productId ];
 
          if(!$stmt->execute($data)){
-            $_SESSION["mali"] = "failed to update the reccord";
+            $_SESSION["error"] = "failed to update the reccord";
             header("location: ".BASE_URL."views/admin/products/edit.php");
             exit;
 
@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }
          
-         $_SESSION["tama"] = "product updated successfully";
+         $_SESSION["success"] = "product updated successfully";
          header("location: ".BASE_URL."views/admin/products/index.php");
         exit;
     
@@ -168,3 +168,6 @@ function processImage($id){
 
     return null;
 }
+
+
+    
