@@ -1,11 +1,13 @@
-<?php 
- session_start();
- require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
- require_once("includes/header.php");
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+require_once("includes/header.php");
+session_start();
 ?>
 
     <!-- Navbar -->
-    <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
+    <?php
+require_once("includes//navbar.php");
+?>
 
     <!-- Product Details -->
     <div class="container mt-5">
@@ -36,7 +38,7 @@
     </div>
 
     <!-- Related Products (Optional) -->
-    <div class="container content my-5">
+    <div class="container my-5">
         <h3>Related Products</h3>
         <div class="row">
             <div class="col-md-3">
@@ -82,4 +84,7 @@
         </div>
     </div>
 
+    <!-- Bootstrap 5 JS Bundle -->
     <?php require_once("includes/footer.php")?>
+</body>
+</html>
